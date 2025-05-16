@@ -1,0 +1,618 @@
+/* styles.css - Complete Updated CSS with Teal and Orange Theme */
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa; /* Light Gray */
+    color: #333; /* Dark Gray */
+    line-height: 1.6;
+}
+
+header {
+    background-color: #2e3c8a; /* Sea Green (Primary) */
+    color: white;
+    padding: 1rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 135px; /* Adjust as needed */
+    margin-right: 15px;
+}
+
+.logo h2 {
+    color: white;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+    background-color: #86ebf8; /* Darker shade of Primary */
+}
+
+main {
+    padding: 2rem;
+}
+
+.hero {
+    background-color: white;
+    padding: 3rem;
+    border-radius: 8px;
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.hero-content {
+    flex: 1;
+}
+
+.hero-content h2 {
+    color: #2e378b; /* Sea Green (Primary) */
+    margin-bottom: 1rem;
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    color: #555; /* Medium Gray */
+}
+
+.hero-content .button {
+    display: inline-block;
+    background-color: #FF8C00; /* Dark Orange (Secondary) */
+    color: white;
+    padding: 0.8rem 1.5rem;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.hero-content .button:hover {
+    background-color: #E67B00; /* Darker shade of Secondary */
+}
+
+.hero-image {
+    flex: 1;
+    text-align: center;
+}
+
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+.abc {
+    padding: 2rem;
+    display: flex; /* Arrange why-connect and slideshow side by side */
+    gap: 2rem; /* Space between the two sections */
+    align-items: flex-start; /* Align items to the top */
+    max-width: auto;
+    /* height: 500px; /* REMOVE THIS LINE */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff; /* Similar background color */
+    margin-bottom: 20px;
+    border-radius: 10px;
+    flex-wrap: wrap; /* Allow content to wrap on smaller screens */
+}
+
+#why-connect {
+    flex: 1; /* Take up available space on the left */
+    padding: 40px 0px;
+    text-align: left;
+    border-radius: 8px;
+    height: fit-content; /* Adjusts to content height */
+    min-width: 300px; /* Prevent it from becoming too narrow */
+}
+
+#why-connect h2 {
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 2.5em;
+    text-align: center;
+}
+
+#why-connect .features-list {
+    max-width: 800px; /* Adjust as needed */
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+}
+
+#why-connect .feature-item {
+    background-color: #ffffffec;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.637);
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    text-align: left;
+    flex-wrap: wrap; /* Allow text to wrap within feature items */
+}
+
+#why-connect .feature-item:hover {
+    transform: translateY(-5px);
+}
+
+#why-connect .feature-item:last-child {
+    margin-bottom: 0;
+}
+
+#why-connect .icon-container {
+    width: 60px; /* Fixed width for icons */
+    height: 60px; /* Fixed height for icons */
+    margin-right: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#why-connect .icon-container img {
+    max-width: 100%; /* Ensure icon fits within the container */
+    max-height: 100%;
+    object-fit: contain; /* Maintain aspect ratio within the container */
+}
+
+#why-connect .text-content {
+    flex-grow: 1;
+    min-width: 200px; /* Prevent text from collapsing too much */
+}
+
+#why-connect .text-content h3 {
+    color: red;
+    margin-top: 0;
+    margin-bottom: 5px;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+#why-connect .text-content p {
+    color: #666;
+    line-height: 1.5;
+    margin-bottom: 0;
+    font-size: 0.95em;
+}
+
+.slideshow-container {
+    flex: 1; /* Take up available space on the right */
+    max-width: 600px; /* Adjust as needed */
+    height: 500px;
+    position: relative;
+    margin: auto;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Aspect ratio to control image height relative to width */
+    aspect-ratio: 16 / 9; /* You can adjust this ratio (e.g., 4/3, 1/1) */
+}
+
+.slide {
+    display: none; /* Initially hide all slides */
+    width: 100%;
+    height: 100%; /* Make the image fill the container height */
+    object-fit: cover; /* Crop/scale image to cover the container */
+}
+
+.slide.active {
+    display: block; /* Show the active slide */
+}
+
+.highlights {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.highlight-card {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: justify;
+}
+
+.highlight-card h3 {
+    color: #2e3c8b; /* Sea Green (Primary) */
+    margin-bottom: 0.5rem;
+}
+
+.highlight-card p {
+    color: #666; /* Slightly darker Dark Gray */
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.card {
+    width: calc(20% - 20px); /* 5 cards per row */
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.card h3 {
+    margin: 10px 0 5px;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.card p {
+    font-size: 0.95rem;
+    color: #555;
+    padding: 0 10px 15px;
+}
+
+footer {
+    background-color: #333; /* Dark Gray */
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+    position: sticky;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Programs Page Styles */
+.programs-main {
+    display: flex;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.programs-sidebar {
+    flex-basis: 250px;
+    flex-shrink: 0;
+    background-color: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.program-details-page,
+.eligibility-details,
+.assessment-certification-details,
+.important-dates-details {
+    flex-grow: 1; /* Allow the main content to take up remaining space */
+    /* Other styles */
+}
+
+.programs-sidebar h2 {
+    color: #372e8b; /* Sea Green (Primary) */
+    margin-bottom: 1rem;
+}
+
+.programs-sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.programs-sidebar ul li {
+    margin-bottom: 0.8rem;
+}
+
+.programs-sidebar ul li a {
+    display: block;
+    color: #333; /* Dark Gray */
+    text-decoration: none;
+    padding: 0.6rem 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.programs-sidebar ul li a:hover,
+.programs-sidebar ul li a.active {
+    background-color: #e0e0e0; /* Lighter Gray */
+    color: #2e478b; /* Sea Green (Primary) */
+    font-weight: bold;
+}
+
+.programs-content {
+    flex-grow: 1;
+    background-color: white;
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.programs-content h1 {
+    color: #333; /* Dark Gray */
+    margin-bottom: 1rem;
+}
+
+.programs-content p {
+    line-height: 1.7;
+    color: #555; /* Medium Gray */
+    margin-bottom: 1.5rem;
+}
+
+.program-subsection {
+    margin-top: 2rem;
+}
+
+.program-subsection h2 {
+    color: #FF8C00; /* Dark Orange (Secondary) */
+    margin-bottom: 1rem;
+}
+
+.program-list {
+    display: flex;
+    flex-direction: column; /* Stack cards vertically */
+    align-items: center;    /* Optional: center them horizontally */
+    gap: 20px;              /* Add spacing between cards */
+    margin-top: 20px;
+}
+
+.program-card {
+    width: 80%; /* Increase width as needed (e.g., 100% for full width) */
+    max-width: 600px;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.program-card:hover {
+    transform: scale(1.02);
+    background-color: #ccc;
+}
+
+
+.program-card h3 {
+    color: #2e308b; /* Sea Green (Primary) */
+    margin-bottom: 0.5rem;
+}
+
+.program-card p {
+    margin-bottom: 0.5rem;
+    color: #555; /* Medium Gray */
+}
+
+.program-card p a {
+    color: #FF8C00; /* Dark Orange (Secondary) */
+    text-decoration: none;
+    margin-right: 10px;
+    transition: color 0.3s ease;
+}
+
+.program-card p a:hover {
+    color: #E67B00; /* Darker shade of Secondary */
+    text-decoration: underline;
+}
+
+/* More Details Page Styles */
+.more-details-main {
+    display: flex;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.more-details-sidebar {
+    flex-basis: 250px;
+    background-color: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.more-details-sidebar h2 {
+    color: #2e3c8b; /* Sea Green (Primary) */
+    margin-bottom: 1rem;
+}
+
+.more-details-sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.more-details-sidebar ul li {
+    margin-bottom: 0.8rem;
+}
+
+.more-details-sidebar ul li a {
+    display: block;
+    color: #333; /* Dark Gray */
+    text-decoration: none;
+    padding: 0.6rem 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.more-details-sidebar ul li a:hover,
+.more-details-sidebar ul li a.active {
+    background-color: #e0e0e0; /* Lighter Gray */
+    color: #2e448b; /* Sea Green (Primary) */
+    font-weight: bold;
+}
+
+.more-details-content {
+    flex-grow: 1;
+    background-color: white;
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.more-details-content h1 {
+    color: #333; /* Dark Gray */
+    margin-bottom: 1rem;
+}
+
+.more-details-content p {
+    line-height: 1.7;
+    color: #555; /* Medium Gray */
+    margin-bottom: 1.5rem;
+}
+
+.more-details-subsection {
+    margin-top: 2rem;
+}
+
+.more-details-subsection h2 {
+    color: #FF8C00; /* Dark Orange (Secondary) */
+    margin-bottom: 1rem;
+}
+
+/* Contact Us Page Styles */
+.contact-section h2 {
+    color: #2e308b; /* Sea Green (Primary) */
+    margin-bottom: 1rem;
+}
+
+.contact-details {
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+    color: #555; /* Medium Gray */
+}
+
+.contact-details p strong {
+    font-weight: bold;
+    color: #333; /* Dark Gray */
+}
+
+.contact-section h3 {
+    color: #333; /* Dark Gray */
+    margin-bottom: 0.8rem;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.3rem;
+    font-weight: bold;
+    color: #333; /* Dark Gray */
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: 100%;
+    padding: 0.7rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: #333; /* Dark Gray */
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.contact-section button[type="submit"] {
+    background-color: #FF8C00; /* Dark Orange (Secondary) */
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.contact-section button[type="submit"]:hover {
+    background-color: #E67B00; /* Darker shade of Secondary */
+}
+
+/* Styles for sub-pages within Programs */
+.eligibility-details,
+.assessment-certification-details,
+.important-dates-details {
+    background-color: white;
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.eligibility-details h2,
+.assessment-certification-details h2,
+.important-dates-details h2 {
+    color: #2e3c8b; /* Sea Green (Primary) */
+    margin-bottom: 1rem;
+}
+
+.eligibility-details h3,
+.assessment-certification-details h3,
+.important-dates-details h3 {
+    color: #333; /* Dark Gray */
+    margin-top: 1.5rem;
+    margin-bottom: 0.8rem;
+}
+
+.eligibility-details p,
+.assessment-certification-details p,
+.important-dates-details p {
+    line-height: 1.7;
+    color: #555; /* Medium Gray */
+    margin-bottom: 1rem;
+}
+
+.eligibility-details ul,
+.assessment-certification-details ul,
+.important-dates-details ul {
+    list-style: disc;
+    padding-left: 20px;
+    margin-bottom: 1rem;
+    color: #333; /* Dark Gray */
+}
+
+.eligibility-details ul li,
+.assessment-certification-details ul li,
+.important-dates-details ul li {
+    margin-bottom: 0.5rem;
+}

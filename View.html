@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Blinking LED using Arduino - Practice Manual</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+
+        h1{
+            text-align: center;
+            color: rgb(189, 34, 34);
+            font-size: 40px;
+        }
+        h2,
+        h3 {
+            color: #2c3e50;
+        }
+
+        .container {
+            background: #fff;
+            padding: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 100%;
+            margin: 0;
+}
+
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            border: 1px solid #ccc;
+            text-align: left;
+        }
+
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+
+        pre {
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-left: 4px solid #3498db;
+            overflow-x: auto;
+        }
+
+        ul {
+            margin-left: 20px;
+        }
+
+        .section {
+            margin-bottom: 25px;
+        }
+
+        .highlight {
+            background-color: #eaf4fb;
+            padding: 10px;
+            border-left: 4px solid #3498db;
+        }
+
+        img {
+            display: block;
+            margin: 20px auto;
+            max-width: 30%;
+            height: auto;
+        }
+        ul img {
+            display: block;
+            margin: 20px auto;
+            max-width: 50%;
+            height: auto;
+        }
+
+        button{
+            transition-duration: 0.4s;
+            text-align: center;
+            background-color: red;
+            color: white;
+            border-radius: 5px;
+            height: 50px;
+            width: 190px;
+            display: inline-block;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+        
+        .button3:hover {
+            background-color: green;
+            color: white;
+        }
+        .custom-style {
+            display: block;       /* treat the img as a block to avoid inline spacing */
+            width: 100%;          /* fill 100% of the parent container’s width */
+            height: auto;         /* auto height preserves the image’s aspect ratio */
+            max-width: 100%;      /* (optional) prevent the image from exceeding its natural size */
+            margin: 0 auto 0 auto; /* removes top and bottom margin */
+        }
+
+      
+    </style>
+</head>
+
+<body>
+     <img src="./Images & Video/WhatsApp Image 2025-05-13 at 9.48.35 PM.jpeg" class="custom-style" alt="Special Image">
+
+    <div class="container">
+        <h1><u><b>Practice Manual</b></u></h1>
+        <h2>Topic 1: Blinking LED using Arduino</h2>
+
+        <div class="section">
+            <h3>1. Introduction</h3>
+            <p>The Blinking LED project using Arduino is a fundamental and widely practiced beginner experiment in
+                electronics and embedded systems. It involves programming an Arduino to turn an LED on and off at
+                regular intervals, demonstrating the use of digital output and timing functions.</p>
+            <p>This project introduces key concepts such as circuit connections, the use of resistors to protect
+                components, and basic programming structures like <code>setup()</code> and <code>loop()</code>. By
+                mastering this simple task, learners gain confidence to explore more complex Arduino applications.</p>
+
+            <div class="highlight">
+                <strong>1.1 LED (Light Emitting Diode)</strong><br>
+                An LED is a semiconductor light source. It emits light when current flows through it. The longer leg
+                (anode +) connects to a digital pin, and the shorter leg (cathode -) connects to GND. Polarity matters.
+            </div>
+            <img src="./Images & Video/Blinking LED.png" alt="">
+        </div>
+
+        <div class="section">
+            <h3>2. List of Components</h3>
+            <table>
+                <tr>
+                    <th>S.No</th>
+                    <th>Component</th>
+                    <th>Quantity</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Arduino Uno (or any)</td>
+                    <td>1</td>
+                    <td>Microcontroller board</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>LED (any color)</td>
+                    <td>1</td>
+                    <td>Light Emitting Diode</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>220Ω Resistor</td>
+                    <td>1</td>
+                    <td>Limits current to the LED</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Breadboard</td>
+                    <td>1</td>
+                    <td>For prototyping without soldering</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Jumper Wires</td>
+                    <td>As needed</td>
+                    <td>For making electrical connections</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h3>3. Circuit Diagram</h3>
+            <h4>3.1 Procedure of Connection</h4>
+            <ul>
+                <li>Connect the long leg (anode) of the LED to digital pin 13 on Arduino.</li>
+                <li>Connect the short leg (cathode) to one end of the 220Ω resistor.</li>
+                <li>Connect the other end of the resistor to GND (ground) on the Arduino.</li>
+                <img src="./Images & Video/Blinking LED-2.png" alt="">
+            </ul>
+
+            <h4>3.2 Arduino Code</h4>
+            <pre>
+// Blink LED on pin 13
+
+void setup() {
+  pinMode(13, OUTPUT); // Set pin 13 as an output
+}
+
+void loop() {
+  digitalWrite(13, HIGH); // Turn LED on
+  delay(1000);            // Wait 1 second
+  digitalWrite(13, LOW);  // Turn LED off
+  delay(1000);            // Wait 1 second
+}
+      </pre>
+        </div>
+
+        <div class="section">
+            <h3>4. Result & Discussion</h3>
+            <p>The LED connected to digital pin 13 blinks on and off every second. This demonstrates digital output
+                control using <code>digitalWrite()</code> and timing using <code>delay()</code>. It repeats indefinitely
+                as coded in the <code>loop()</code> function.</p>
+        </div>
+
+        <div class="section">
+            <h3>5. Applications</h3>
+            <p>Basic electronics learning, debugging indicators.</p>
+        </div>
+        <div>
+        <h1><u>Demo Video</u></h1>
+        <ul>
+            <li><a href="https://youtu.be/AI1P9dSySuo"><button class="button3"> Video - 1 </button></a></li>
+            <li><a href="https://youtu.be/enXtIHZCEYY"><button class="button3"> Video - 2 </button></a></li>
+
+        </ul>
+
+    </div>
+        
+    </div>
+
+</body>
+
+</html>

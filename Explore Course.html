@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Course Catalog</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    header {
+      background-color: #2e3c8a;
+      /* Sea Green (Primary) */
+      color: white;
+      padding: 1rem 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      height: 135px;
+      /* Adjust as needed */
+      margin-right: 15px;
+    }
+
+    .logo h2 {
+      color: white;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+    }
+
+    nav ul li {
+      margin-left: 20px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    nav ul li a:hover,
+    nav ul li a.active {
+      background-color: #86ebf8;
+      /* Darker shade of Primary */
+    }
+
+    main {
+      padding: 2rem;
+    }
+
+    .notification {
+      position: relative;
+    }
+
+    .notification .badge {
+      position: absolute;
+      top: -5px;
+      right: -10px;
+      background-color: red;
+      color: white;
+      font-size: 12px;
+      padding: 3px 6px;
+      border-radius: 50%;
+    }
+
+    .course-list-section {
+      display: flex;
+      gap: 20px;
+    }
+
+    .filters {
+      width: 250px;
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .filters h2 {
+      color: #004a8f;
+      margin-top: 0;
+      margin-bottom: 15px;
+    }
+
+    .filter-group {
+      margin-bottom: 15px;
+    }
+
+    .filter-group h3 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      font-size: 1.1em;
+      color: #333;
+    }
+
+    .filter-group ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .filter-group li {
+      margin-bottom: 8px;
+    }
+
+    .filter-group label {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .filter-group input[type="checkbox"] {
+      margin-right: 8px;
+    }
+
+    .course-list {
+      flex-grow: 1;
+    }
+
+    .tab-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .course-card {
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      padding: 15px;
+      flex-direction: column;
+      display: flex;
+      /* Make course cards visible by default */
+    }
+
+    .course-card img {
+      width: 100%;
+      height: auto;
+      border-radius: 5px;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .course-card h3 {
+      color: #004a8f;
+      margin-top: 0;
+      margin-bottom: 5px;
+      font-size: 1.2em;
+    }
+
+    .course-card p {
+      color: #555;
+      margin-bottom: 8px;
+      font-size: 0.95em;
+    }
+
+    .course-details {
+      color: #777;
+      font-size: 0.85em;
+    }
+
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">
+      <img src="https://www.adscientificindex.com/logos/5395.png" alt="MITS Gwalior Logo">
+      <h2 style="text-align: center;">Madhav Institute of Technology & Science, Gwalior<br>Deemed
+        University<br>School Connect Program</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="programs.html">Programs</a></li>
+        <li><a href="more-details.html">More Details</a></li>
+        <li class="notification">
+          <a href="#" id="notification-icon">🔔</a>
+          <span class="badge" id="notification-count"></span>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="container course-list-section">
+    <aside class="filters">
+      <h2>Explore Courses</h2>
+      <div class="filter-group">
+        <h3>Technology Based</h3>
+        <ul>
+          <li><label><input type="checkbox" class="filter" data-filter="technology" value="Arduino">Arduino</label></li>
+          <li><label><input type="checkbox" class="filter" data-filter="technology" value="ESP32">ESP32</label></li>
+          <li><label><input type="checkbox" class="filter" data-filter="technology" value="Noade MCU">Noade MCU</label>
+          </li>
+          <li><label><input type="checkbox" class="filter" data-filter="technology" value="Noade Red">Noade Red</label>
+          </li>
+          <li><label><input type="checkbox" class="filter" data-filter="technology" value="Python">Python</label></li>
+          <li><label><input type="checkbox" class="filter" data-filter="technology" value="Auto CAD">Auto CAD</label>
+          </li>
+          <li><label><input type="checkbox" class="filter" data-filter="technology" value="CAMD">CAMD</label></li>
+          <li><label><input type="checkbox" class="filter" data-filter="technology"
+                value="PhET Interactive Simulations, Algodoo">PhET Interactive Simulations, Algodoo</label></li>
+          <li><label><input type="checkbox" class="filter" data-filter="technology" value="PhET, ChemCollective">PhET,
+              ChemCollective</label></li>
+        </ul>
+      </div>
+    </aside>
+
+    <div class="course-list">
+      <div class="tab-content active">
+        <div class="course-card clickable-div" data-href="10 days cources.html" data-technology="Arduino">
+          <img
+            src="https://th.bing.com/th/id/R.d77adf4cb94d4f26b67a92e4d02e4f20?rik=qNsuxVNV3h3BQg&riu=http%3a%2f%2fimages.bit-tech.net%2fcontent_images%2f2010%2f09%2farduino-projects-getting-started%2farduino-side-large.jpg&ehk=HUHeXzNwlit75ofTCQP77vxNZvQVtOiTvFCuyZbZH1I%3d&risl=&pid=ImgRaw&r=0"
+            alt="Course Image">
+          <h3>Arduino</h3>
+          <p>Instructor: Dr. Geetam Shukla</p>
+          <p class="course-details">Duration: 10 Days | Language: English</p>
+        </div>
+        <div class="course-card clickable-div" data-href="#" data-technology="ESP32">
+          <img src="https://th.bing.com/th/id/OIP.zi-gWg8uE7gthvNLkI5-cAHaEK?cb=iwc2&rs=1&pid=ImgDetMain"
+            alt="Course Image">
+          <h3>ESP32</h3>
+          <p>Instructor: Dr. Geetam Shukla</p>
+          <p class="course-details">Duration: 10 Days | Language: English</p>
+        </div>
+        <div class="course-card clickable-div" data-href="#" data-technology="Noade MCU">
+          <img
+            src="https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/281982124/original/7aba3b388c104cf5c3284e501893d5b403e597c7/do-all-kinds-of-nodemcu-esp8266-projects-and-programming.jpg"
+            alt="Course Image">
+          <h3>Noade MCU</h3>
+          <p>Instructor: Dr. Geetam Shukla</p>
+          <p class="course-details">Duration: 10 Days | Language: English</p>
+        </div>
+        <div class="course-card clickable-div" data-href="#" data-technology="Noade Red">
+          <img src="https://www.saryx.com/wp-content/uploads/2021/08/Node-Red.png" alt="Course Image">
+          <h3>Noade Red</h3>
+          <p>Instructor: Dr. Geetam Shukla</p>
+          <p class="course-details">Duration: 10 Days | Language: English</p>
+        </div>
+        <div class="course-card clickable-div" data-href="#" data-technology="Python">
+          <img src="https://th.bing.com/th/id/OIP.gR-dUO0IqeV6GrJeih-iMQHaE8?cb=iwc2&w=1200&h=800&rs=1&pid=ImgDetMain"
+            alt="Course Image">
+          <h3>Python</h3>
+          <p>Instructor: Dr. Geetam Shukla</p>
+          <p class="course-details">Duration: 10 Days | Language: English</p>
+        </div>
+        <div class="course-card clickable-div" data-href="#" data-technology="Auto CAD">
+          <img src="https://logos-world.net/wp-content/uploads/2020/12/Autocad-Logo-2009-2014.png" alt="Course Image">
+          <h3>Auto CAD</h3>
+          <p>Instructor: Dr. Geetam Shukla</p>
+          <p class="course-details">Duration: 10 Days | Language: English</p>
+        </div>
+        <div class="course-card clickable-div" data-href="#" data-technology="CAMD">
+          <img src="https://science.nd.edu/assets/498490/600x400/camd_logo.png" alt="Course Image">
+          <h3>CAMD</h3>
+          <p>Instructor: Dr. Geetam Shukla</p>
+          <p class="course-details">Duration: 10 Days | Language: English</p>
+        </div>
+        <div class="course-card clickable-div" data-href="#" data-technology="PhET Interactive Simulations, Algodoo">
+          <img src="https://th.bing.com/th/id/OIP.emkPcB_cR2JO97BRAl-TuQHaFG?cb=iwc2&rs=1&pid=ImgDetMain"
+            alt="Course Image">
+          <h3>PhET Interactive Simulations, Algodoo</h3>
+          <p>Instructor: Dr. Geetam Shukla</p>
+          <p class="course-details">Duration: 10 Days | Language: English</p>
+        </div>
+        <div class="course-card clickable-div" data-href="#" data-technology="PhET, ChemCollective">
+          <img src="https://chem.libretexts.org/@api/deki/files/126636/ChemCollective.png?revision=1"
+            alt="Course Image">
+          <h3>PhET, ChemCollective</h3>
+          <p>Instructor: Dr. Geetam Shukla</p>
+          <p class="course-details">Duration: 10 Days | Language: English</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Madhav Institute of Technology and Science, Gwalior</p>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const clickableDivs = document.querySelectorAll('.clickable-div');
+
+      clickableDivs.forEach(div => {
+        div.addEventListener('click', function () {
+          const href = this.getAttribute('data-href');
+          if (href) {
+            window.location.href = href;
+            // To open in a new tab, use:
+            // window.open(href, '_blank');
+          }
+        });
+      });
+    });
+    // Simulate a real fetch from a server
+    document.addEventListener("DOMContentLoaded", function () {
+      // Example: Simulated email alert count
+      const unreadCount = 0; // You can update this dynamically
+
+      const badge = document.getElementById("notification-count");
+      badge.textContent = unreadCount;
+
+      // Click to see full notifications
+      document.getElementById("notification-icon").addEventListener("click", function (e) {
+        e.preventDefault();
+        alert("You have " + unreadCount + " new notifications related to your SWAYAM email.");
+      });
+    });
+
+    const filters = {
+      technology: [],
+      coordinator: [],
+      mode: [],
+      duration: []
+    };
+
+    document.querySelectorAll('.filter').forEach(checkbox => {
+      checkbox.addEventListener('change', () => {
+        const type = checkbox.dataset.filter;
+        const value = checkbox.value;
+
+        if (checkbox.checked) {
+          filters[type].push(value);
+        } else {
+          filters[type] = filters[type].filter(v => v !== value);
+        }
+
+        filterCourses();
+      });
+    });
+
+    function filterCourses() {
+      const cards = document.querySelectorAll('.course-card');
+
+      cards.forEach(card => {
+        let visible = true;
+
+        for (const key in filters) {
+          if (filters[key].length > 0) {
+            const cardValue = card.dataset[key];
+            if (!filters[key].includes(cardValue)) {
+              visible = false;
+              break;
+            }
+          }
+        }
+
+        card.style.display = visible ? 'grid' : 'none';
+      });
+    }
+  </script>
+
+</body>
+
+</html>

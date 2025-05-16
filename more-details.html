@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>More Details - MITS Gwalior</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="https://www.adscientificindex.com/logos/5395.png" type="image/png">
+</head>
+<body>
+    <header>
+          <div class="logo">
+            <img src="https://www.adscientificindex.com/logos/5395.png" alt="MITS Gwalior Logo"> 
+            <h2 style="text-align: center;">Madhav Institute of Technology & Science, Gwalior<br>Deemed University<br>School Connect Program</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="programs.html">Programs</a></li>
+                <li><a href="more-details.html" class="active">More Details</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="more-details-main">
+        <aside class="more-details-sidebar">
+            <h2>More Information</h2>
+            <ul>
+                <li><a href="#downloads-section">Downloads</a></li>
+                <li><a href="contact.html">SPOC</a></li>
+            </ul>
+        </aside>
+
+        <section class="more-details-content">
+            <h1>More About MITS Gwalior</h1>
+            <p>Explore additional resources and information about Madhav Institute of Technology and Science, Gwalior.</p>
+
+            <div id="downloads-section" class="more-details-subsection">
+                <h2>Downloads</h2>
+                <p>Access important documents and forms here.</p>
+                <ul class="downloads-list">
+                    <li><a href="brochure.pdf" target="_blank">Institute Brochure (PDF)</a></li>
+                    <li><a href="application_form.doc" download>Application Form (DOC)</a></li>
+                    <li><a href="academic_calendar.pdf" target="_blank">Academic Calendar (PDF)</a></li>
+                    </ul>
+            </div>
+
+            </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Madhav Institute of Technology and Science, Gwalior</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const sidebarLinks = document.querySelectorAll('.more-details-sidebar ul li a');
+            const downloadsSectionLink = document.querySelector('.more-details-sidebar ul li a[href="#downloads-section"]');
+
+            // Highlight the 'Downloads' link in the sidebar initially
+            if (downloadsSectionLink) {
+                downloadsSectionLink.classList.add('active');
+            }
+
+            // Basic smooth scrolling for sidebar links (optional)
+            sidebarLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const targetId = this.getAttribute('href');
+                    if (targetId.startsWith('#')) {
+                        e.preventDefault();
+                        document.querySelector(targetId).scrollIntoView({
+                            behavior: 'smooth'
+                        });
+
+                        // Update active class on sidebar links (optional)
+                        sidebarLinks.forEach(l => l.classList.remove('active'));
+                        this.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

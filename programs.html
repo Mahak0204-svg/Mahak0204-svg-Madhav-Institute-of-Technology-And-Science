@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programs - MITS Gwalior</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="https://www.adscientificindex.com/logos/5395.png" type="image/png">
+</head>
+<body>
+    <header>
+         <div class="logo">
+            <img src="https://www.adscientificindex.com/logos/5395.png" alt="MITS Gwalior Logo"> 
+            <h2 style="text-align: center;">Madhav Institute of Technology & Science, Gwalior<br>Deemed University<br>School Connect Program</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="programs.html" class="active">Programs</a></li>
+                <li><a href="more-details.html">More Details</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="programs-main">
+        <aside class="programs-sidebar">
+            <h2>Program Details</h2>
+            <ul>
+                <li><a href="#courses-section" class="active">Courses</a></li>
+                <li><a href="eligibility.html">Eligibility</a></li>
+                <li><a href="program-details.html">Program Details</a></li>
+                <li><a href="assessment.html">Assessment & Certification</a></li>
+                <li><a href="important-dates.html">Important Dates</a></li>
+            </ul>
+        </aside>
+
+        <section class="programs-content">
+            <h1>Our Programs</h1>
+            <p>Explore the various programs offered at Madhav Institute of Technology and Science, Gwalior. Use the filter below to browse courses by duration.</p>
+
+            <div id="courses-section" class="program-subsection">
+                <h2>Courses</h2>
+                <div class="program-list">
+                    <div class="program-card" data-duration="4-Days">
+                        <h3>5-Days Course</h3>
+                        <p>Brief description of course 1...</p>
+                        <p><a href="program-details.html?id=1">Learn More</a></p>
+                    </div>
+                    <div class="program-card" data-duration="8-Days">
+                        <h3>10-Days Course</h3>
+                        <p>Brief description of course 2...</p>
+                        <p><a href="Explore Course.html">Learn More</a></p>
+                    </div>
+                    <div class="program-card" data-duration="12-Days">
+                        <h3>15-Days Course</h3>
+                        <p>Brief description of course 3...</p>
+                        <p><a href="program-details.html?id=3">Learn More</a></p>
+                    </div>
+                    </div>
+            </div>
+
+            </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Madhav Institute of Technology and Science, Gwalior</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-buttons button');
+            const programCards = document.querySelectorAll('.program-card');
+            const sidebarLinks = document.querySelectorAll('.programs-sidebar ul li a');
+            const coursesSectionLink = document.querySelector('.programs-sidebar ul li a[href="#courses-section"]');
+
+            // Function to handle course filtering
+            function filterCourses(duration) {
+                programCards.forEach(card => {
+                    if (duration === 'all' || card.getAttribute('data-duration') === duration) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            }
+
+            // Event listeners for filter buttons
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const duration = this.getAttribute('data-duration');
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    filterCourses(duration);
+                });
+            });
+
+            // Initially show all courses
+            filterCourses('all');
+
+            // Highlight the 'Courses' link in the sidebar initially
+            if (coursesSectionLink) {
+                coursesSectionLink.classList.add('active');
+            }
+
+            // Basic smooth scrolling for sidebar links (optional)
+            sidebarLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const targetId = this.getAttribute('href');
+                    if (targetId.startsWith('#')) {
+                        e.preventDefault();
+                        document.querySelector(targetId).scrollIntoView({
+                            behavior: 'smooth'
+                        });
+
+                        // Update active class on sidebar links (optional)
+                        sidebarLinks.forEach(l => l.classList.remove('active'));
+                        this.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
